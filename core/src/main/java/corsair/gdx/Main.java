@@ -4,17 +4,15 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
-import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
-import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
+// import com.badlogic.gdx.graphics.Texture;
+// import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+// import com.badlogic.gdx.utils.ScreenUtils;
+// import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+// import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class Main extends InputAdapter implements ApplicationListener {
-    private SpriteBatch batch;
-    private Texture image;
     private MyGame  myGame;
 
 
@@ -22,9 +20,6 @@ public class Main extends InputAdapter implements ApplicationListener {
     public void create() {
 
         myGame = new MyGame();
-
-        batch = new SpriteBatch();
-        image = new Texture("libgdx.png");
 
         Gdx.input.setInputProcessor(this);
 
@@ -64,8 +59,7 @@ public class Main extends InputAdapter implements ApplicationListener {
 
     @Override
     public void dispose() {
-        batch.dispose();
-        image.dispose();
+        myGame.dispose();
     }
 
     @Override
