@@ -2,7 +2,7 @@ package corsair.gdx;
 
 import java.util.function.Supplier;
 
-import com.badlogic.gdx.Gdx;
+//import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 
@@ -65,7 +65,7 @@ public class PlayMode implements GameMode {
                 fDrop = true;
                  break;
             case Input.Keys.ESCAPE:
-                Gdx.app.exit();
+                game.CheckHighScore();
                 break;
             default:
                 break;

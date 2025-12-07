@@ -1,5 +1,8 @@
 package corsair.gdx;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+
 import space.earlygrey.shapedrawer.ShapeDrawer;
 
 public class GameOverMode implements GameMode{
@@ -17,6 +20,14 @@ public class GameOverMode implements GameMode{
     @Override
     public void draw(ShapeDrawer shapeDrawer) {
         // drawing logic (none for standby)
+        float y = Globals.TOP-Globals.cellSize*6;
+        game.font26.draw(game.batch, "GAME OVER",
+                        Globals.LEFT+Globals.cellSize*5, y);
+
+        y -= 50;
+        game.font20.draw(game.batch, "Press Space to Continue",
+                        Globals.LEFT+Globals.cellSize*2.3f, y);
+    
     }
 
     @Override
@@ -33,6 +44,17 @@ public class GameOverMode implements GameMode{
     @Override
     public boolean keyDown(int keycode) {
         // handle key press; return false to indicate not consumed
+        switch (keycode) {
+            case Input.Keys.SPACE:
+                //--
+                game.SetStandbyMode();
+                break;
+            case Input.Keys.ESCAPE:
+                Gdx.app.exit();
+                break;
+            default:
+                break;
+        }
         return false;
     }
 

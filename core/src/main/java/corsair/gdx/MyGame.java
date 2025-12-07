@@ -58,7 +58,7 @@ public class MyGame{
         new HighScore("XXXX", 0)
     };
     int idHighScore = -1;
-    String playerName = "XXXX";
+    String playerName = "";
 
 	/** explosion sound **/
 	private final Sound explosion;
@@ -496,13 +496,13 @@ public class MyGame{
         if (idHighScore >= 0)
         {
             InsertHighScore(idHighScore, playerName, score);
-            //SetHighScoresMode();
+            SetHighScoresMode();
             InitGame();
         }
         else
         {
-            //game.InitGame();
-            //SetGameOverMode();
+            InitGame();
+            SetGameOverMode();
         }
         
     }
