@@ -21,7 +21,7 @@
             "name": "Lwjgl3Launcher",
             "request": "launch",
             "mainClass": "corsair.gdx.lwjgl3.Lwjgl3Launcher",
-            "projectName": "TetrisGDX-lwjgl3"
+            "projectName": "lwjgl3"
         }
     ]
 }
