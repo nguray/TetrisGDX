@@ -22,11 +22,11 @@ public class GameOverMode implements GameMode{
         // drawing logic (none for standby)
         float y = Globals.TOP-Globals.cellSize*6;
         game.font26.draw(game.batch, "GAME OVER",
-                        Globals.LEFT+Globals.cellSize*5, y);
+                        Globals.LEFT+Globals.cellSize*3, y);
 
-        y -= 50;
+        y -= 64;
         game.font20.draw(game.batch, "Press Space to Continue",
-                        Globals.LEFT+Globals.cellSize*2.3f, y);
+                        Globals.LEFT+Globals.cellSize*1.8f, y);
     
     }
 

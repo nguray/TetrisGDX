@@ -144,16 +144,6 @@ public class MyGame{
 
         LoadHighScores();
 
-        //var id = 0;
-        // for(int i = 0;i<Globals.NB_COLUMNS;i++){
-        //     board[id+i] = 1;
-        // }
-
-        // id = Globals.NB_COLUMNS*(Globals.NB_ROWS-1);
-        // for(int i = 0;i<Globals.NB_COLUMNS;i++){
-        //     board[id+i] = 2;
-        // }
-
     }
 
     public void SetStandbyMode()
@@ -310,7 +300,7 @@ public class MyGame{
     public void InitGame()
     {
         //--------------------------------------------------------
-        score = 1000;
+        score = 0;
 
         for (int i = 0; i < board.length; i++)
         {

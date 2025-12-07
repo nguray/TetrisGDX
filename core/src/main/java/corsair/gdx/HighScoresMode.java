@@ -11,59 +11,9 @@ import space.earlygrey.shapedrawer.ShapeDrawer;
 
 public class HighScoresMode implements GameMode{
     private final MyGame game;
-    private Map<Integer,String> keys;
 
     public HighScoresMode(MyGame myGame){
         this.game = myGame;
-        // create a Map instance 
-        // using HashMap
-        keys = new HashMap<>();
-        keys.put( Input.Keys.A,"A");
-        keys.put( Input.Keys.B,"B");
-        keys.put( Input.Keys.C,"C");
-        keys.put( Input.Keys.D,"D");
-        keys.put( Input.Keys.E,"E");
-        keys.put( Input.Keys.F,"F");
-        keys.put( Input.Keys.G,"G");
-        keys.put( Input.Keys.H,"H");
-        keys.put( Input.Keys.I,"I");
-        keys.put( Input.Keys.J,"J");
-        keys.put( Input.Keys.K,"K");
-        keys.put( Input.Keys.L,"L");
-        keys.put( Input.Keys.M,"M");
-        keys.put( Input.Keys.N,"N");
-        keys.put( Input.Keys.O,"O");
-        keys.put( Input.Keys.Q,"P");
-        keys.put( Input.Keys.R,"Q");
-        keys.put( Input.Keys.S,"R");
-        keys.put( Input.Keys.T,"S");
-        keys.put( Input.Keys.U,"T");
-        keys.put( Input.Keys.V,"U");
-        keys.put( Input.Keys.W,"V");
-        keys.put( Input.Keys.X,"W");
-        keys.put( Input.Keys.Y,"X");
-        keys.put( Input.Keys.Z,"Y");
-        keys.put( Input.Keys.Z,"Z");
-        keys.put( Input.Keys.NUM_0,"0");
-        keys.put( Input.Keys.NUM_1,"1");
-        keys.put( Input.Keys.NUM_2,"2");
-        keys.put( Input.Keys.NUM_3,"3");
-        keys.put( Input.Keys.NUM_4,"4");
-        keys.put( Input.Keys.NUM_5,"5");
-        keys.put( Input.Keys.NUM_6,"6");
-        keys.put( Input.Keys.NUM_7,"7");
-        keys.put( Input.Keys.NUM_8,"8");
-        keys.put( Input.Keys.NUM_9,"9");
-        keys.put( Input.Keys.NUMPAD_0,"0");
-        keys.put( Input.Keys.NUMPAD_1,"1");
-        keys.put( Input.Keys.NUMPAD_2,"2");
-        keys.put( Input.Keys.NUMPAD_3,"3");
-        keys.put( Input.Keys.NUMPAD_4,"4");
-        keys.put( Input.Keys.NUMPAD_5,"5");
-        keys.put( Input.Keys.NUMPAD_6,"6");
-        keys.put( Input.Keys.NUMPAD_7,"7");
-        keys.put( Input.Keys.NUMPAD_8,"8");
-        keys.put( Input.Keys.NUMPAD_9,"9");
 
     }
 
@@ -115,13 +65,12 @@ public class HighScoresMode implements GameMode{
             default:
                 if (game.playerName.length()<6)
                 {
-                    var k = Integer.valueOf(keycode);
-                    if (keys.containsKey(k))
-                    {
-                        String ch = keys.get(keycode);
-                        game.playerName += ch;
-                        game.highScores[game.idHighScore].name = game.playerName;
-                    }
+                    var ch = Input.Keys.toString(keycode);
+                    if (ch.length()>1)
+                        ch = ch.substring(ch.length() - 1);
+                    game.playerName += ch;
+                    game.highScores[game.idHighScore].name = game.playerName;
+
                 }
                 break;
         }
