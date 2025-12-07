@@ -85,16 +85,16 @@ public class MyGame{
         random = new Random();
         random.setSeed((long) System.currentTimeMillis());
 
-		explosion = Gdx.audio.newSound(Gdx.files.internal("data/109662__grunz__success.wav"));
+		explosion = Gdx.audio.newSound(Gdx.files.internal("109662__grunz__success.wav"));
 
-		music = Gdx.audio.newMusic(Gdx.files.getFileHandle("data/Tetris.wav", FileType.Internal));
+		music = Gdx.audio.newMusic(Gdx.files.getFileHandle("Tetris.wav", FileType.Internal));
 		music.setLooping(true);
         music.setVolume(0.3f);
 		music.play();
 
 
         FreeTypeFontGenerator generator = 
-                new FreeTypeFontGenerator(Gdx.files.internal("fonts/sansation.ttf"));
+                new FreeTypeFontGenerator(Gdx.files.internal("sansation.ttf"));
         FreeTypeFontParameter parameter = new FreeTypeFontParameter();
         parameter.size = 22;
         parameter.borderWidth = 1;
