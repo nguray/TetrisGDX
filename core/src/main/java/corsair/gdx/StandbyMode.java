@@ -18,8 +18,19 @@ public class StandbyMode implements GameMode{
     }
 
     @Override
-    public void draw(ShapeDrawer shapeDrawer) {
+    public void draw(ShapeDrawer drawer ) {
         // drawing logic (none for standby)
+        float y = Globals.TOP-Globals.cellSize*4;
+        game.font26.draw(game.batch, "Tetris in Java",
+                        Globals.LEFT+Globals.cellSize*3, y);
+
+        y -= 50;
+        game.font20.draw(game.batch, "Powered by libGDX",
+                        Globals.LEFT+Globals.cellSize*2.5f, y);
+        y -= 70;
+        game.font20.draw(game.batch, "Press Space to Start",
+                        Globals.LEFT+Globals.cellSize*2.3f, y);
+
 
     }
 

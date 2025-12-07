@@ -63,6 +63,7 @@ public class MyGame{
 	/** explosion sound **/
 	private final Sound explosion;
 
+    BitmapFont  font20;
     BitmapFont  font22;
     BitmapFont  font26;
 	Music       music;
@@ -99,8 +100,15 @@ public class MyGame{
         parameter.borderWidth = 1;
         parameter.shadowOffsetX = 1;
         parameter.shadowOffsetY = 1;
+        parameter.color = new Color(1.0f, 1.0f, 0, 1.0f);;
         parameter.shadowColor = new Color(0, 0.5f, 0, 0.75f);
         font22 = generator.generateFont(parameter); // font size 22 pixels
+
+
+        parameter.size = 20;
+        parameter.shadowColor = new Color(1.0f, 0, 0, 1.0f);
+        font20 = generator.generateFont(parameter); // font size 26 pixels
+
         parameter.size = 26;
         parameter.shadowColor = new Color(1.0f, 223.0f/255.0f, 0, 1.0f);
         font26 = generator.generateFont(parameter); // font size 26 pixels
@@ -130,9 +138,9 @@ public class MyGame{
         gameOverMode    = new GameOverMode(this);
         highScoresMode  = new HighScoresMode(this);
 
-        currentMode = (GameMode) playMode;
-        currentMode.init();
-
+        //currentMode = (GameMode) playMode;
+        //currentMode.init();
+        SetStandbyMode();
 
         LoadHighScores();
 
@@ -510,6 +518,9 @@ public class MyGame{
         }
         if (music != null) {
             music.dispose();
+        }
+        if (font20!=null){
+            font20.dispose();
         }
         if (font22!=null){
             font22.dispose();
