@@ -26,8 +26,17 @@ allprojects {
 }
 
 configure(subprojects) {
+
   apply plugin: 'java-library'
-  sourceCompatibility = 21
+  // Use Java toolchain to target Java 21 (LTS)
+  java {
+    toolchain {
+      languageVersion = JavaLanguageVersion.of(21)
+    }
+  }
+  sourceCompatibility = JavaVersion.VERSION_21
+  targetCompatibility = JavaVersion.VERSION_21
+
 
   // From https://lyze.dev/2021/04/29/libGDX-Internal-Assets-List/
   // The article can be helpful when using assets.txt in your project.

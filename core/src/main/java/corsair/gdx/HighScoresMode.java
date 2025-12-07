@@ -36,7 +36,7 @@ public class HighScoresMode implements GameMode{
     @Override
     public boolean keyDown(int keycode) {
         // TODO Auto-generated method stub
-        //System.out.println("Key Down: "+keycode);
+        System.out.println("Key Down: "+keycode);
         switch (keycode) {
             case Input.Keys.SPACE:
                 //--
@@ -86,6 +86,7 @@ public class HighScoresMode implements GameMode{
     @Override
     public void draw(ShapeDrawer drawer) {
         // TODO Auto-generated method stub
+        //System.out.println(game.score);
         float y = Globals.TOP-Globals.cellSize;
         game.font22.draw(game.batch, "HIGH SCORES",
                         Globals.LEFT+ Globals.cellSize*3.0f, y);

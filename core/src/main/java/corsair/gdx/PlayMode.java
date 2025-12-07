@@ -65,7 +65,12 @@ public class PlayMode implements GameMode {
                 fDrop = true;
                  break;
             case Input.Keys.ESCAPE:
-                game.CheckHighScore();
+                if (game.score!=0){
+                    game.CheckHighScore();
+                }else{
+                    game.SetStandbyMode();
+                    game.InitGame();
+                }
                 break;
             default:
                 break;
@@ -336,8 +341,6 @@ public class PlayMode implements GameMode {
         }
 
     }
-
-
 
 
 }
