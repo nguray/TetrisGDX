@@ -10,6 +10,8 @@ import com.badlogic.gdx.graphics.GL20;
 // import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 // import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 import java.awt.im.InputContext;
+import java.util.Locale;
+import java.util.Properties;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 /**
@@ -42,6 +44,8 @@ public class Main extends InputAdapter implements ApplicationListener {
         InputContext context = InputContext.getInstance();
         System.out.println(context.getLocale().toString());
 
+        System.out.println(System.getProperty("user.language"));
+    
     }
 
     @Override
