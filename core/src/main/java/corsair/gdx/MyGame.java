@@ -212,6 +212,12 @@ public class MyGame{
 
     }
 
+    /**
+     * Computes the number of completed lines on the game board.
+     * A line is considered completed when all columns in that row contain a non-zero value (a placed block).
+     * 
+     * @return the number of completed lines on the board
+     */
     public int ComputeCompledLines()
     {
 
@@ -236,6 +242,19 @@ public class MyGame{
         return nbLines;
     }
 
+    /**
+     * Freezes the current tetromino on the game board and computes completed lines.
+     * 
+     * This method places the current tetromino's blocks onto the game board by converting
+     * their world coordinates to board indices. It then checks for completed lines and
+     * updates the score accordingly.
+     * 
+     * The method iterates through each vector (block) of the current tetromino, calculates
+     * its grid position, and marks it on the board if it falls within valid bounds.
+     * After freezing the tetromino, it computes any completed lines and awards points.
+     * 
+     * @return the number of lines completed after freezing the tetromino
+     */
     public int FreezeCurTetromino()
     {
         int nbCompletedLines = 0;
@@ -267,13 +286,25 @@ public class MyGame{
 
     }
 
+    /**
+     * Erases the first completed line found on the game board.
+     * 
+     * Scans the board from top to bottom to find the first row where all cells are filled (non-zero).
+     * When a completed row is found, shifts all rows above it down by one position, effectively
+     * removing the completed line. The top row is cleared in the process.
+     * 
+     * The method uses a 1D array representation of the 2D board, where each cell is accessed
+     * using the formula: board[row * NB_COLUMNS + column].
+     * 
+     * After erasing a line, the method returns immediately without checking for additional
+     * completed lines. Subsequent calls are needed to erase any remaining completed lines.
+     */
     public void EraseFirstCompletedLine()
     {
         //---------------------------------------------------
-        boolean fCompleted = false;
         for (int r = 0; r < Globals.NB_ROWS; r++)
         {
-            fCompleted = true;
+            boolean fCompleted = true;
             for (int c = 0; c < Globals.NB_COLUMNS; c++)
             {
                 if (board[r * Globals.NB_COLUMNS + c] == 0)
@@ -284,7 +315,7 @@ public class MyGame{
             }
             if (fCompleted)
             {
-                //-- Décaler d'une ligne le plateau
+                //-- Décaler d'une ligne du plateau
                 for (int r1 = r; r1 > 0; r1--)
                 {
                     for (int c1 = 0; c1 < Globals.NB_COLUMNS; c1++)
@@ -309,6 +340,16 @@ public class MyGame{
 
     }
 
+    /**
+     * Checks if the game is over by examining the top row of the board.
+     * <p>
+     * The game is considered over if any cell in the top row (represented by the
+     * first row of the board array) is occupied (i.e., not zero).
+     * </p>
+     *
+     * @return {@code true} if the game is over (at least one cell in the top row is occupied),
+     *         {@code false} otherwise.
+     */
     public boolean IsGameOver()
     {
         //----------------------------------------
@@ -322,6 +363,15 @@ public class MyGame{
         return false;
     }
 
+    /**
+     * Draws the current state of the game board using the provided ShapeDrawer.
+     * <p>
+     * Iterates through each cell of the board and, for non-empty cells, draws a filled rectangle
+     * at the corresponding position with the color associated with the tetromino type.
+     * </p>
+     *
+     * @param drawer the ShapeDrawer used to render filled rectangles for each occupied cell
+     */
     public void drawBoard(ShapeDrawer drawer)
     {
         int     fx,fy;
@@ -348,6 +398,19 @@ public class MyGame{
 
     }
 
+    /**
+     * Renders the current game frame.
+     * <p>
+     * This method handles the following rendering tasks:
+     * <ul>
+     *   <li>Begins the sprite batch for drawing.</li>
+     *   <li>Draws the board background using the specified color.</li>
+     *   <li>Renders the tetromino remains present on the board.</li>
+     *   <li>Delegates additional drawing to the current game mode.</li>
+     *   <li>Displays the current score.</li>
+     *   <li>Ends the sprite batch after all drawing operations are complete.</li>
+     * </ul>
+     */
     public void draw(){
         //-------------------------------------------------------
         batch.begin();
@@ -367,6 +430,14 @@ public class MyGame{
 
 
     }
+
+    /**
+     * Updates the game state each frame.
+     * 
+     * Handles rotation of the next tetromino every 500 milliseconds,
+     * updates the current game mode, and checks for game over conditions.
+     * If the game is over, validates and stores the high score.
+     */
     public void update()
     {
         //-----------------------------------------
@@ -392,6 +463,18 @@ public class MyGame{
 
     }
 
+    /**
+     * Computes the score based on the number of lines cleared.
+     *
+     * @param nbLines the number of lines cleared in a single move
+     * @return the score awarded for clearing the specified number of lines:
+     *         - 0 lines: 0 points
+     *         - 1 line: 40 points
+     *         - 2 lines: 100 points
+     *         - 3 lines: 300 points
+     *         - 4 lines: 1200 points
+     *         - 5+ lines: 2000 points
+     */
     public int ComputeScore(int nbLines)
     {
         //----------------------------------------------------
@@ -406,13 +489,29 @@ public class MyGame{
         };
     }
 
+    /**
+     * Draws the current score on the screen using the provided SpriteBatch.
+     * 
+     * The score is displayed in the bottom-left area of the screen with a
+     * 6-digit zero-padded format (e.g., "SCORE : 000123").
+     * 
+     * @param batch the SpriteBatch used to render text to the screen
+     */
     public void drawScore(com.badlogic.gdx.graphics.g2d.SpriteBatch batch)
     {
         //-- draw score
-        font22.draw(batch, String.format("SCORE : %05d", score),
+        font22.draw(batch, String.format("SCORE : %06d", score),
                         Globals.LEFT, Globals.BOTTOM-10);
     }
 
+    /**
+     * Saves the current high scores to a file named "highscores.txt".
+     * 
+     * Each high score is written to the file in CSV format with the player name
+     * and score separated by a comma on each line.
+     * 
+     * @throws IOException if an I/O error occurs during file writing
+     */
     public void SaveHighScores()
     {
         //--
@@ -431,6 +530,21 @@ public class MyGame{
     
     }
 
+    /**
+     * Loads high scores from a text file and populates the highScores array.
+     * 
+     * Reads from "highscores.txt" located in the internal files directory.
+     * The file format should contain comma-separated values with the player name
+     * and score on each line (e.g., "PlayerName,1000").
+     * 
+     * The method parses up to 10 high score entries into the highScores array.
+     * Lines that do not contain exactly 2 comma-separated values are skipped.
+     * 
+     * If an error occurs during file reading or parsing, an error message is
+     * printed to the console and the exception is logged via printStackTrace().
+     * 
+     * @throws NumberFormatException if a score value cannot be parsed as an integer
+     */
     public void LoadHighScores()
     {
         //--
@@ -455,6 +569,13 @@ public class MyGame{
     
     }
 
+    /**
+     * Determines if a given score qualifies as a high score and returns its position.
+     *
+     * @param score the score to check against the high scores list
+     * @return the index position (0-9) where the score would be placed in the high scores list,
+     *         or -1 if the score does not qualify as a high score
+     */
     public int IsHighScore(int score)
     {
         //---------------------------------------------------
@@ -468,6 +589,17 @@ public class MyGame{
         return -1;
     }
 
+    /**
+     * Inserts a high score at the specified position in the high scores array.
+     * 
+     * If the given id is within the valid range (0-9), this method shifts existing
+     * high scores down by one position and inserts the new high score at the specified id.
+     * High scores at positions greater than id are shifted to make room for the new entry.
+     * 
+     * @param id the position at which to insert the high score (must be between 0 and 9 inclusive)
+     * @param name the name associated with the high score
+     * @param score the score value to insert
+     */
     public void InsertHighScore(int id, String name, int score)
     {
         if ((id >= 0) && (id < 10))
@@ -480,6 +612,13 @@ public class MyGame{
         }
     }
 
+    /**
+     * Checks if the current score qualifies as a high score and handles the result.
+     * 
+     * If the score is a high score, inserts it into the high scores list with the player's name,
+     * transitions to high scores display mode, and reinitializes the game.
+     * If the score is not a high score, reinitializes the game and transitions to game over mode.
+     */
     public void CheckHighScore()
     {
         idHighScore = IsHighScore(score);
