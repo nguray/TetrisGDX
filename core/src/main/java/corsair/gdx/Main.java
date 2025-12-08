@@ -12,6 +12,22 @@ import com.badlogic.gdx.graphics.GL20;
 import java.awt.im.InputContext;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
+/**
+ * Main application class for the Tetris GDX game.
+ * 
+ * Extends InputAdapter and implements ApplicationListener to handle
+ * the game lifecycle and input events for the LibGDX framework.
+ * 
+ * Responsibilities:
+ * - Manages game initialization and resource cleanup
+ * - Coordinates game updates and rendering
+ * - Processes keyboard input and delegates to the current game mode
+ * - Manages input processing pipeline
+ * 
+ * @author [Raymond NGUYEN THANH]
+ * @version 1.0
+ */
+
 public class Main extends InputAdapter implements ApplicationListener {
     private MyGame  myGame;
 
