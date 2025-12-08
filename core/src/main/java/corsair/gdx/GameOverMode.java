@@ -5,6 +5,23 @@ import com.badlogic.gdx.Input;
 
 import space.earlygrey.shapedrawer.ShapeDrawer;
 
+/**
+ * GameOverMode represents the game state displayed when the player loses.
+ * This mode handles rendering the "GAME OVER" message and provides options
+ * for the player to continue or exit the game.
+ * 
+ * <p>Features:
+ * <ul>
+ *   <li>Displays "GAME OVER" text centered on screen</li>
+ *   <li>Shows instructions to press Space to continue</li>
+ *   <li>Handles Space key input to return to standby mode</li>
+ *   <li>Handles Escape key input to exit the application</li>
+ * </ul>
+ * 
+ * @author Corsair
+ * @see GameMode
+ * @see MyGame
+ */
 public class GameOverMode implements GameMode{
     private final MyGame game;
 

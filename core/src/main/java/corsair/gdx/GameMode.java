@@ -2,6 +2,10 @@ package corsair.gdx;
 
 import space.earlygrey.shapedrawer.ShapeDrawer;
 
+/**
+ * Represents a game mode in the TetrisGDX application.
+ * Implementations of this interface define the behavior and rendering of different game modes.
+ */
 public interface GameMode {
 
     public void init();

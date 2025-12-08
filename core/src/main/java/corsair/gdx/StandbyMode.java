@@ -5,6 +5,23 @@ import com.badlogic.gdx.Input;
 
 import space.earlygrey.shapedrawer.ShapeDrawer;
 
+/**
+ * Represents the standby/menu mode of the Tetris game.
+ * 
+ * This mode displays the main menu screen with the game title and instructions.
+ * It handles user input to transition to play mode or exit the application.
+ * 
+ * The StandbyMode implements the GameMode interface and manages:
+ * - Rendering of the title screen with game name, credit, and start instructions
+ * - User input handling for game transitions (Space to start, Escape to exit)
+ * - No active game logic or updates while in this mode
+ * 
+ * @author [Your Name]
+ * @version 1.0
+ * @see GameMode
+ * @see MyGame
+ */
+
 public class StandbyMode implements GameMode{
     private final MyGame game;
 

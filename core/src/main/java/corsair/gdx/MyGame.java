@@ -20,6 +20,38 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFont
 
 import space.earlygrey.shapedrawer.ShapeDrawer;
 
+/**
+ * MyGame is the main game controller class for a Tetris-like game using LibGDX.
+ * 
+ * This class manages the overall game state, including:
+ * <ul>
+ *   <li>Game board representation and tetromino placement</li>
+ *   <li>Current and next tetromino pieces</li>
+ *   <li>Score calculation and high score management</li>
+ *   <li>Game mode transitions (standby, play, game over, high scores)</li>
+ *   <li>Audio and visual rendering</li>
+ *   <li>Game initialization, updates, and cleanup</li>
+ * </ul>
+ * 
+ * The game board is represented as a 1D integer array where each cell contains
+ * a tetromino type (0 for empty, 1-7 for different tetromino types).
+ * 
+ * Score is computed based on the number of completed lines cleared in a single move,
+ * following standard Tetris scoring rules. High scores are persisted to and loaded
+ * from a text file.
+ * 
+ * The class uses a Tetris randomizer algorithm that cycles through a shuffled bag
+ * of all 7 tetromino types before reshuffling.
+ * 
+ * @author Corsair
+ * @see Tetromino
+ * @see GameMode
+ * @see StandbyMode
+ * @see PlayMode
+ * @see GameOverMode
+ * @see HighScoresMode
+ */
+
 public class MyGame{
 
     class HighScore {

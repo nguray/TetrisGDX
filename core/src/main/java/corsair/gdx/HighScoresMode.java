@@ -6,6 +6,30 @@ import com.badlogic.gdx.graphics.Color;
 
 import space.earlygrey.shapedrawer.ShapeDrawer;
 
+/**
+ * HighScoresMode manages the high scores display and player name input screen.
+ * 
+ * This class implements the GameMode interface and handles:
+ * - Displaying high scores in a ranked list
+ * - Allowing players to input their name when achieving a high score
+ * - Keyboard input for name editing (backspace, character entry)
+ * - Navigation back to standby mode or exit
+ * 
+ * Features:
+ * - Supports up to 6 character names
+ * - Default name "XXXX" if player doesn't enter a name
+ * - Real-time name display update while editing
+ * - Golden highlight for the currently edited high score entry
+ * - Automatic save to persistent storage upon completion
+ * 
+ * Keyboard Controls:
+ * - SPACE or ENTER: Confirm and return to standby mode
+ * - BACKSPACE: Delete last character from player name
+ * - ESCAPE: Exit application
+ * - Other keys: Add character to player name (up to 6 characters)
+ * 
+ * @author Corsair
+ */
 public class HighScoresMode implements GameMode{
     private final MyGame game;
 

@@ -8,6 +8,41 @@ import com.badlogic.gdx.graphics.Color;
 
 import space.earlygrey.shapedrawer.ShapeDrawer;
 
+/**
+ * PlayMode implements the main gameplay logic for the Tetris game.
+ * It handles user input, game state updates, and rendering for the active play session.
+ * 
+ * <p>
+ * Responsibilities include:
+ * <ul>
+ *   <li>Managing the current tetromino's movement, rotation, and drop actions.</li>
+ *   <li>Handling user input for moving, rotating, and dropping tetrominoes.</li>
+ *   <li>Updating the game state, including line completion, tetromino freezing, and spawning new tetrominoes.</li>
+ *   <li>Rendering the current and next tetrominoes, as well as visual effects.</li>
+ *   <li>Managing game events such as pausing, checking high scores, and resetting the game.</li>
+ * </ul>
+ * </p>
+ *
+ * <p>
+ * The class interacts closely with the {@link MyGame} instance, which maintains the overall game state,
+ * the game board, and the current and next tetrominoes.
+ * </p>
+ *
+ * <p>
+ * Key methods:
+ * <ul>
+ *   <li>{@link #init()} - Initializes the play mode state.</li>
+ *   <li>{@link #keyDown(int)} - Handles key press events for gameplay controls.</li>
+ *   <li>{@link #keyUp(int)} - Handles key release events.</li>
+ *   <li>{@link #draw(ShapeDrawer)} - Renders the game elements for the play mode.</li>
+ *   <li>{@link #update()} - Updates the game logic, including movement, rotation, dropping, and line clearing.</li>
+ * </ul>
+ * </p>
+ *
+ * <p>
+ * Internal state includes timers for movement and effects, flags for user actions, and counters for completed lines.
+ * </p>
+ */
 public class PlayMode implements GameMode {
 
     private MyGame game;
