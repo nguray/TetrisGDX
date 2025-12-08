@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.GL20;
 // import com.badlogic.gdx.utils.ScreenUtils;
 // import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 // import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
-
+import java.awt.im.InputContext;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class Main extends InputAdapter implements ApplicationListener {
@@ -23,7 +23,9 @@ public class Main extends InputAdapter implements ApplicationListener {
 
         Gdx.input.setInputProcessor(this);
 
-    
+        InputContext context = InputContext.getInstance();
+        System.out.println(context.getLocale().toString());
+
     }
 
     @Override

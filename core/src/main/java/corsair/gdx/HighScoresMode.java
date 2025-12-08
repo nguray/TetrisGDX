@@ -9,8 +9,10 @@ import space.earlygrey.shapedrawer.ShapeDrawer;
 public class HighScoresMode implements GameMode{
     private final MyGame game;
 
+
     public HighScoresMode(MyGame myGame){
         this.game = myGame;
+
 
     }
 
@@ -33,7 +35,7 @@ public class HighScoresMode implements GameMode{
     @Override
     public boolean keyDown(int keycode) {
         // TODO Auto-generated method stub
-        System.out.println("Key Down: "+keycode);
+        //System.out.println("Key Down: "+keycode);
         switch (keycode) {
             case Input.Keys.SPACE:
                 //--
@@ -60,8 +62,10 @@ public class HighScoresMode implements GameMode{
                 game.SetStandbyMode();
                 break;
             default:
+
                 if (game.playerName.length()<6)
                 {
+
                     var ch = Input.Keys.toString(keycode);
                     if (ch.length()>1)
                         ch = ch.substring(ch.length() - 1);
