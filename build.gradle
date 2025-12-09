@@ -28,10 +28,10 @@ allprojects {
 configure(subprojects) {
 
   apply plugin: 'java-library'
-  // Use Java toolchain to target Java 22 (LTS)
+  // Use Java toolchain to target Java 25 (LTS)
   java {
     toolchain {
-      languageVersion = JavaLanguageVersion.of(22)
+      languageVersion = JavaLanguageVersion.of(25)
     }
   }
   //sourceCompatibility = JavaVersion.VERSION_22
