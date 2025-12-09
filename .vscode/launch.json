@@ -10,6 +10,7 @@
             "request": "launch",
             "mainClass": ""
         },
+
         {
             "type": "java",
             "name": "Current File",
@@ -21,7 +22,7 @@
             "name": "Lwjgl3Launcher",
             "request": "launch",
             "mainClass": "corsair.gdx.lwjgl3.Lwjgl3Launcher",
-            "projectName": "lwjgl3"
+            "projectName": "TetrisGDX-lwjgl3"
         }
     ]
 }
