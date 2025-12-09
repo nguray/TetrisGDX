@@ -26,21 +26,15 @@ eclipse.project.name = appName + '-lwjgl3'
 // Configure Java toolchain for Java 21
 java {
   toolchain {
-    languageVersion = JavaLanguageVersion.of(21)
+    languageVersion = JavaLanguageVersion.of(22)
   }
 }
-sourceCompatibility = JavaVersion.VERSION_21
-targetCompatibility = JavaVersion.VERSION_21
+sourceCompatibility = JavaVersion.VERSION_22
+targetCompatibility = JavaVersion.VERSION_22
 if (JavaVersion.current().isJava9Compatible()) {
-        compileJava.options.release.set(21)
+        compileJava.options.release.set(22)
 }
 
-
-//java.sourceCompatibility = 21
-//java.targetCompatibility = 21
-//if (JavaVersion.current().isJava9Compatible()) {
-//        compileJava.options.release.set(21)
-//}
 
 dependencies {
   implementation "com.badlogicgames.gdx-controllers:gdx-controllers-desktop:$gdxControllersVersion"

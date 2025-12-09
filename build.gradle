@@ -31,11 +31,11 @@ configure(subprojects) {
   // Use Java toolchain to target Java 21 (LTS)
   java {
     toolchain {
-      languageVersion = JavaLanguageVersion.of(21)
+      languageVersion = JavaLanguageVersion.of(22)
     }
   }
-  sourceCompatibility = JavaVersion.VERSION_21
-  targetCompatibility = JavaVersion.VERSION_21
+  sourceCompatibility = JavaVersion.VERSION_22
+  targetCompatibility = JavaVersion.VERSION_22
 
 
   // From https://lyze.dev/2021/04/29/libGDX-Internal-Assets-List/
