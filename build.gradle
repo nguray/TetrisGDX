@@ -34,8 +34,8 @@ configure(subprojects) {
       languageVersion = JavaLanguageVersion.of(22)
     }
   }
-  sourceCompatibility = JavaVersion.VERSION_22
-  targetCompatibility = JavaVersion.VERSION_22
+  //sourceCompatibility = JavaVersion.VERSION_22
+  //targetCompatibility = JavaVersion.VERSION_22
 
 
   // From https://lyze.dev/2021/04/29/libGDX-Internal-Assets-List/

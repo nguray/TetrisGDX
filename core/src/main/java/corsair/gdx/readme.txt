@@ -3,6 +3,8 @@
 // Posted by Anibal Anto
 // Retrieved 2025-11-25, License - CC BY-SA 4.0
 
+./gradlew wrapper --gradle-version latest
+
 /*----------------------
 Represents an operation
 that accepts two input
