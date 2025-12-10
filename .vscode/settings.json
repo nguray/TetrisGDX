@@ -1,9 +1,9 @@
 {
-  "java.import.gradle.java.home": "C:\\jdk-25.0.1",
+  "java.import.gradle.java.home": "C:\\jdk-24.0.2",
   "git.confirmSync": false,
   "java.debug.settings.debugSupportOnDecompiledSource": "off",
   "java.debug.settings.enableRunDebugCodeLens": false,
-  "java.jdt.ls.java.home": "C:\\jdk-25.0.1",
+  "java.jdt.ls.java.home": "C:\\jdk-24.0.2",
   "maven.terminal.useJavaHome": true,
   "java.configuration.updateBuildConfiguration": "interactive"
 }

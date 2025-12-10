@@ -28,14 +28,14 @@ allprojects {
 configure(subprojects) {
 
   apply plugin: 'java-library'
-  // Use Java toolchain to target Java 25 (LTS)
+  // Use Java toolchain to target Java 24 (LTS)
   java {
     toolchain {
-      languageVersion = JavaLanguageVersion.of(25)
+      languageVersion = JavaLanguageVersion.of(24)
     }
   }
-  //sourceCompatibility = JavaVersion.VERSION_22
-  //targetCompatibility = JavaVersion.VERSION_22
+  sourceCompatibility = JavaVersion.VERSION_24
+  targetCompatibility = JavaVersion.VERSION_24
 
 
   // From https://lyze.dev/2021/04/29/libGDX-Internal-Assets-List/
